@@ -1,0 +1,223 @@
+<?php 
+$path = Session::get('language'); 
+$control = Control::find(1); 
+?>
+<?php if(Auth::user()->is_admin): ?>
+  <?php $__env->startSection('title'); ?> <?php echo $control->school_name; ?> <?php $__env->stopSection(); ?>
+<?php endif; ?>
+<?php if(Auth::user()->is_student): ?>
+  <?php $__env->startSection('title'); ?> <?php echo Lang::get($path.'.Control_Panel') . ' - ' . Lang::get($path.'.student'); ?> <?php $__env->stopSection(); ?>
+<?php endif; ?>
+<?php if(Auth::user()->is_teacher): ?>
+  <?php $__env->startSection('title'); ?> <?php echo Lang::get($path.'.Control_Panel') . ' - ' . Lang::get($path.'.teacher'); ?> <?php $__env->stopSection(); ?>
+<?php endif; ?>  
+<?php if(Auth::user()->is_secretaire): ?>
+  <?php $__env->startSection('title'); ?>  Compte Sécretaire <?php $__env->stopSection(); ?>
+<?php endif; ?>
+<?php $__env->startSection('content'); ?>
+<?php echo $__env->make('backend.timeAgo', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+       <!-- Workspace -->
+<main class="workspace">
+        <!-- Breadcrumb -->
+        <section class="breadcrumb">
+        <!-- Breadcrumb -->
+            <h1><?php echo $title; ?></h1>
+            <ul>
+                <li><a href="#no-link" class="link" data-target="[data-menu=ui]" data-toggle="tooltip-menu" data-tippy-content="UI">Année d'étude</a></li>
+                <li class="divider la la-arrow-right"></li>
+                <li class="font-bold"><?php echo $years->yearsUniv; ?></li>
+            </ul>
+        </section>
+        <div class="grid lg:grid-cols-2 gap-5">
+<?php echo $__env->make('backend.admin.count', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <div class="grid lg:grid-cols-1 gap-5">   
+<?php echo $__env->make('backend.pages.alerts', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>                 
+            <!-- Categories -->
+                <div class="card p-5">
+                    <h3 class="underline"><i class="la la-sticky-note"></i> Bloc note</h3>
+                    <div class="mt-2 leading-normal">
+                        <?php foreach($notes as $note): ?>  
+                    <div class="ltr:mr-5 rtl:ml-5">
+                        <h5 class="text-sm"><i class="la la-user"></i> <?php echo $note->user->fname; ?>
+
+                            <sup class="badge badge_outlined <?php echo $note->typeclass; ?>" style="float:right;"><?php echo $note->typepriority; ?> </sup>
+                        </h5>
+                        <p class=""><?php echo $note->textnote; ?> 
+                            <?php if(!Auth::user()->is_secretaire OR $note->user->id == Auth::user()->id): ?>
+                            <sup><a onclick="return confirm('<?php echo Lang::get($path.'.delete'); ?>')" href="<?php echo URL::route('admin_notes_destroy', $note->id); ?>" style="color:red" class="text-xl">
+                            <span class="la la-trash-alt" style="color:red;float:right;"></span> 
+                            </a>
+                          </sup>
+                          <?php endif; ?>
+                        </p>
+                        </div> 
+                        <hr class="my-2"> 
+                        <?php endforeach; ?>
+                    </div>
+            <?php echo $__env->make('backend.admin.dashboard.addNote', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            </div>
+            </div>
+            <?php if($payed > 0): ?>
+            <div class="card p-5 flex flex-col mt-5">
+                <?php echo $__env->make('backend.admin.bar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            </div>
+            <?php echo $__env->make('backend.admin.recente', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <?php endif; ?>
+            <!-- Recent Statistique -->
+            <div class="card p-5 flex flex-col mt-5">
+                <h3>Effectif étudiants par niveau</h3>
+                <button class="ltr:mr-2 rtl:ml-2 ltr:ml-auto rtl:mr-auto badge badge_success">
+                <?php $students = Student::where('yearsUniv', $years->yearsUniv)->count();?>    
+                Total: <?php echo $students; ?></button>
+                <table class="table table_list mt-3 w-full">
+                    <thead>
+                        <tr>
+                            <th class="ltr:text-left rtl:text-right">Niveau</th>
+                            <th class="" align="center">Total étudiants</th>
+                            <th class="" align="center">Auditeur Libre</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach($classe as $st): ?>
+                        <?php 
+                            $student = Student::where('class_id', $st->id)
+                                                  ->where('yearsUniv', $years->yearsUniv)
+                                                  ->where('grade', NULL)
+                                                  ->count();
+
+                           $mixte   = Student::where('class_id', $st->id)
+                                                  ->where('yearsUniv', $years->yearsUniv)
+                                                  ->where('grade', '=', 'AL')
+                                                  ->count();                       
+                        ?>
+                        <tr>
+                            <td><?php echo $st->name; ?></td>
+                            <td class="" align="center">
+                                <?php if($student > 0): ?>
+                                <div class="badge badge_success"><?php echo $student; ?></div>
+                                <?php else: ?>
+                                 <span class="badge badge_outlined badge_secondary"> 0 </span>
+                                <?php endif; ?>
+                            </td>
+                            <td align="center">
+                                 <?php if($mixte > 0): ?>
+                                    <div class="badge badge_primary"><?php echo $mixte; ?></div>
+                                 <?php endif; ?>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div> 
+            <div class="card p-5 flex flex-col mt-5">
+                <h3>Statistique Absence</h3>
+                <?php 
+                    $absence = Absence::where('status', 0)
+                                        ->where('yearsUniv', $years->yearsUniv)
+                                        ->count();
+                    $presence = Absence::where('status', 1)
+                                        ->where('yearsUniv', $years->yearsUniv)
+                                        ->count();                  
+                ?>
+                <div class="flex flex-col ltr:mr-2 rtl:ml-2 ltr:ml-auto rtl:mr-auto badge badge_success">Total présence: <?php echo $presence; ?></div>
+                <div class="ltr:mr-2 rtl:ml-2 ltr:ml-auto rtl:mr-auto badge badge_danger">Total absence: <?php echo $absence; ?></div>
+                <table class="table table_list mt-3 w-full">
+                    <thead>
+                        <tr>
+                            <th class="ltr:text-left rtl:text-right">Niveau</th>
+                            <th class="" align="center">Total présent</th>
+                            <th class="" align="center">Total absent</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach($classe as $st): ?>
+                        <?php 
+                            $absent = Absence::where('status', 0)
+                                                ->where('class_id', $st->id)
+                                                ->where('yearsUniv', $years->yearsUniv)
+                                                ->count();
+                            $present = Absence::where('status', 1)
+                                                ->where('class_id', $st->id)
+                                                ->where('yearsUniv', $years->yearsUniv)
+                                                ->count();
+                        ?>
+                        <tr>
+                            <td><?php echo $st->name; ?></td>
+                            <td class="" align="center">
+                                <?php if($present > 0): ?>
+                                <div class="badge badge_success"><?php echo $present; ?></div>
+                                <?php else: ?>
+                                 <span class="badge badge_outlined badge_secondary"> 0 </span>
+                                <?php endif; ?>
+                            </td>
+                            <td class="" align="center">
+                                <?php if($absent > 0): ?>
+                                <div class="badge badge_danger"><?php echo $absent; ?></div>
+                                <?php else: ?>
+                                <span class="badge badge_outlined badge_secondary"> 0 </span>
+                                <?php endif; ?>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>        
+        </div>
+        <div class="grid lg:grid-cols-2 gap-5"> 
+        <div class="card p-5 flex flex-col mt-5">
+                <h3>Taux de paiement</h3>
+                <?php 
+                    $x =  DB::table('students')
+                                ->where('yearsUniv', $years->yearsUniv)
+                                ->count();
+
+                    $y  = DB::table('payments')
+                                ->where('nbreMois', '>=', '1')
+                                ->where('yearsUniv', $years->yearsUniv)
+                                ->count();
+                ?>
+                <?php if($y > 0): ?>
+                <button class="ltr:mr-2 rtl:ml-2 ltr:ml-auto rtl:mr-auto badge badge_success">Total: 
+                <?php echo number_format($y*100/$x, 1, ',', ''); ?>%
+                </button> <?php endif; ?>
+                <table class="table table_list mt-3 w-full">
+                    <thead>
+                        <tr>
+                            <th class="ltr:text-left rtl:text-right">Niveaux</th>
+                            <th class="" align="center">%</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach($classe as $st): ?>
+                        <?php 
+                            $alls =  DB::table('students')
+                                        ->where('class_id', $st->id)
+                                        ->where('yearsUniv', $years->yearsUniv)
+                                        ->count();
+
+                            $pay  = DB::table('payments')
+                                        ->where('class_id', $st->id)
+                                        ->where('nbreMois', '>=', '1')
+                                        ->where('yearsUniv', $years->yearsUniv)
+                                        ->count();
+                        ?>
+                        <tr>
+                            <td><?php echo $st->name; ?></td>
+                            <td class="" align="center">
+                                <?php if($pay > 0): ?>
+                                <div class="badge badge_success">
+                                <?php echo number_format($pay*100/$alls, 1, ',', ''); ?>%</div>
+                                <?php else: ?>
+                                 <span class="badge badge_outlined badge_secondary"> 0%</span>
+                                <?php endif; ?>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+            </div>     
+<?php echo $__env->make('backend.pages.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+</main>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('backend.main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

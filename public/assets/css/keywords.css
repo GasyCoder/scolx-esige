@@ -1,0 +1,99 @@
+.keywords-container {
+  margin-bottom: -15px
+}
+.keywords-list {
+  display: block;
+  float: left;
+  height: 0
+}
+.keyword {
+  background-color: rgba(102, 103, 107, .07);
+  color: #66676b;
+  display: inline-block;
+  float: left;
+  padding: 0;
+  border-radius: 4px;
+  cursor: default;
+  margin: 0 7px 7px 0;
+  height: 35px;
+  line-height: 35px;
+  box-sizing: border-box;
+  animation: KeywordIn .3s ease-in-out;
+  animation-fill-mode: both;
+  transition: .4s;
+  overflow: hidden;
+  max-width: 100%;
+  font-size: 14.7px
+}
+@keyframes KeywordIn {
+  0% {
+    opacity: 0;
+    transform: scale(.9)
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1)
+  }
+}
+.keyword.keyword-removed {
+  max-width: 0;
+  margin: 0;
+  overflow: hidden;
+  opacity: 0;
+  animation: KeywordOut .4s ease-in-out;
+  animation-fill-mode: both;
+  pointer-events: none
+}
+@keyframes KeywordOut {
+  0% {
+    opacity: 1
+  }
+  50% {
+    opacity: 0
+  }
+  100% {
+    opacity: 0;
+    margin-top: -35px
+  }
+}
+.keyword-text {
+  padding-right: 12px
+}
+.keyword .keyword-remove:before {
+  display: inline-block;
+  cursor: pointer;
+  font-family: 'Line Awesome Free';
+  content: "\f057";
+  line-height: 20px;
+  position: relative;
+  top: 2px;
+  margin-right: 4px;
+  margin-left: 10px;
+  font-size: 15px
+}
+.keyword-input-container {
+  position: relative
+}
+.keyword-input-container .keyword-input-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 36px;
+  width: 36px;
+  padding: 0;
+  color: #fff;
+  background-color: #66676b;
+  border-radius: 4px;
+  margin: 6px;
+  font-size: 19px;
+  text-align: center;
+  line-height: 36px
+}
+.keyword-input-container .keyword-input-button i {
+  color: #fff;
+  position: relative;
+  top: 2px
+}
+input.keyword-input {
+  margin: 0 0 15px
+}

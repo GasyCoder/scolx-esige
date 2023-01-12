@@ -1,0 +1,84 @@
+<?php $path = Session::get('language'); ?>
+
+<?php $__env->startSection('title'); ?> <?php echo Lang::get($path.'.students'); ?> - Niveaux <?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+    <main class="workspace">
+        <!-- Breadcrumb -->
+        <section class="breadcrumb lg:flex items-start">
+            <div class="p-4">
+        <!-- Breadcrumb -->
+            <h3><?php echo $title; ?></h3>
+            <ul>
+                <li><a href="#no-link" class="link" data-target="[data-menu=ui]" data-toggle="tooltip-menu" data-tippy-content="UI">Menu</a></li>
+                <li class="divider la la-arrow-right"></li>
+                <li>Choisir la classe</li>
+            </ul>
+            </div>
+        </section>
+<?php if(count($classes) >= 1): ?>
+   <div class="p-4">
+            <div class="overflow-x-auto">
+                <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-5">
+                <a href="<?php echo URL::current().'/'.$kilasy->id; ?>/1">    
+                    <div class="card card_hoverable card_list">
+                        <div class="image image_icon">
+                            <span class="la la-user-graduate la-4x"></span>
+                        </div>
+                        <div class="body">
+                            <h6><?php echo $kilasy->name; ?></h6>
+                            <p class="font-bold"><?php echo $kilasy->short; ?></p>
+                        </div>
+                    </div>
+                    </a>     
+                 <?php foreach($classes as $class): ?>
+                  <?php if($class->id > 1): ?>
+                 <a href="<?php echo URL::current().'/'.$class->id; ?>">    
+                    <div class="card card_hoverable card_list">
+                        <div class="image image_icon">
+                            <span class="la la-user-graduate la-4x"></span>
+                        </div>
+                        <div class="body">
+                            <h5><?php echo $class->name; ?></h5>
+                            <p><?php echo $class->short; ?></p>
+                        </div>
+                    </div>
+                    </a>
+                    <?php endif; ?>
+                    <?php endforeach; ?> 
+               </div>
+            </div>
+        </div>
+
+<?php endif; ?>     
+<?php echo $__env->make('backend.pages.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+</main>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <!-- Toggler - Mobile -->
+        <button class="sidebar-toggler la la-ellipsis-v" data-toggle="sidebar"></button>
+        <!-- Status -->
+        <h3 class="p-5">Les étudiants</h3>
+        <hr>
+        <div class="flex flex-col gap-y-5 p-5">  
+        <a href="" class="flex items-center text-normal">
+          <span class="la la-check-circle text-2xl leading-none ltr:mr-2 rtl:ml-2"></span>
+          Total inscrit 
+          <span class="badge badge_primary ltr:mr-2 rtl:ml-2 ltr:ml-auto rtl:mr-auto"> 
+            <?php $students = Student::where('yearsUniv', $year->yearsUniv)->count();?>
+            <?php echo $students; ?>
+
+          </span>
+        </a>
+        <a href="" class="flex items-center text-normal">
+            <span class="la la-check-circle text-2xl leading-none ltr:mr-2 rtl:ml-2"></span>
+          Année d'étude
+          <span class="badge badge_primary ltr:mr-2 rtl:ml-2 ltr:ml-auto rtl:mr-auto"> 
+           <?php echo $year->yearsUniv; ?>
+
+          </span>
+        </a>
+        </div>
+    </aside>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('backend.main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

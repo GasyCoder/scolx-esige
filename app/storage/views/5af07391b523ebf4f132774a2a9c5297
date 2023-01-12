@@ -1,0 +1,95 @@
+<?php $path = Session::get('language'); ?>
+<?php $__env->startSection('title'); ?> Gestion d'absence <?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
+    <main class="workspace">
+        <!-- Breadcrumb -->
+        <section class="breadcrumb lg:flex items-start">
+            <div>
+<?php echo $__env->make('backend.break', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            </div>
+        </section>
+
+         <!-- Layout -->
+        <div class="flex gap-x-2 mb-5">
+            <a href="/admin/absences/etudiants/<?php echo $class->id; ?>" class="btn btn-icon btn-icon_large btn_outlined btn_primary">
+                <span class="la la-undo"></span>
+            </a>
+        </div>
+        <?php if( count($elements) > 0): ?>
+        <div class="card p-5">
+            <div class="overflow-x-auto">
+                <table class="table-sorter table table-auto table_hoverable w-full">
+                    <thead>
+                        <tr style="color:#000;">
+                           <th class="ltr:text-left rtl:text-right">#</th>
+                            <th class="ltr:text-left rtl:text-right">Liste des matières (EC)</th>
+                            <th class="text-center" style="text-align:center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach($elements as $key=> $element): ?>
+                    <?php $show = Absence::where('element_id', $element->id)->first()?>
+                        <tr>
+                           <td><?php echo $key+1; ?></td>
+                           <td class="font-bold">
+                            <a href="<?php echo URL::current().'/'.rtrim(strtr(base64_encode($element->id), '+/', '-_'), '=').'/'.rtrim(strtr(base64_encode($element->codeEc), '+/', '-_'), '='); ?>/absence/take"><?php echo $element->name; ?></a> 
+                            </td>
+                            <td class="text-center">
+                                <?php if(!empty($show->element_id)): ?>
+                                <div class="inline-flex ltr:ml-auto rtl:mr-auto">
+                                 <a href="<?php echo URL::route('voirlist', [$class->id, $parcour->id.'/'.rtrim(strtr(base64_encode($element->id), '+/', '-_'), '=')]); ?>" class="badge badge_success" style="color:#fff">
+                                    <span class="la la-eye  ltr:mr-0 rtl:ml-0"></span>
+                                    Ouvrir
+                                </a>
+                                </div>
+                                <?php endif; ?>
+                                <div class="inline-flex ltr:ml-auto rtl:mr-auto">
+                                 <a href="<?php echo URL::current().'/'.rtrim(strtr(base64_encode($element->id), '+/', '-_'), '=').'/'.rtrim(strtr(base64_encode($element->codeEc), '+/', '-_'), '='); ?>/absence/take" class="badge badge_primary" style="color:#fff">
+                                    <span class="la la-plus  ltr:mr-0 rtl:ml-0"></span>
+                                    Ajouter
+                                </a>
+                                </div>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+     <?php else: ?>
+     <!-- Layout -->
+<div class="alert alert_primary">
+    <strong class="uppercase"><bdi>Désolé!</bdi></strong>
+     Il n'y a pas des <u><a href="<?php echo URL::route('indexEc'); ?>" style="color:#EF4444">éléménts constitutifs</a></u> sur ces niveau et parcour.  
+    <button type="button" class="dismiss la la-times" data-dismiss="alert"></button>
+</div>
+<?php endif; ?>
+<?php echo $__env->make('backend.pages.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+</main>
+  <!-- Sidebar -->
+    <aside class="sidebar">
+        <!-- Toggler - Mobile -->
+        <button class="sidebar-toggler la la-ellipsis-v" data-toggle="sidebar"></button>
+        <!-- Tags -->
+        <h2 class="p-5">Objets sélectionnés</h2>
+        <hr>
+         <div class="flex flex-col gap-y-5 p-5">
+            <a href="#" class="flex items-center text-normal">
+                <span class="la la-check-circle text-2xl leading-none ltr:mr-2 rtl:ml-2"></span>
+                Niveau
+                <span class="badge badge_primary ltr:mr-2 rtl:ml-2 ltr:ml-auto rtl:mr-auto"><?php echo $class->short; ?></span>
+            </a>
+            <a href="#" class="flex items-center text-normal">
+                <span class="la la-check-circle text-2xl leading-none ltr:mr-2 rtl:ml-2"></span>
+                Parcours
+                <span class="badge badge_primary ltr:mr-2 rtl:ml-2 ltr:ml-auto rtl:mr-auto"><?php echo $parcour->abr; ?></span>
+            </a>
+            <a href="#" class="flex items-center text-normal">
+                <span class="la la-check-circle text-2xl leading-none ltr:mr-2 rtl:ml-2"></span>
+                Tronc commun
+                <span class="badge badge_danger ltr:mr-2 rtl:ml-2 ltr:ml-auto rtl:mr-auto">Non</span>
+            </a>
+        </div>
+    </aside>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('backend.main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -122,7 +122,7 @@ code{
            
             <a href="#" class="flex items-center text-normal">
                 <span class="la la-check-circle text-2xl leading-none ltr:mr-2 rtl:ml-2"></span>
-                Parcour
+                Parcours
                 <span class="badge badge_outlined badge_success ltr:mr-2 rtl:ml-2 ltr:ml-auto rtl:mr-auto">{{ $parcour->abr }}</span>
             </a>
             <a href="#" class="flex items-center text-normal">

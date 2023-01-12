@@ -1,0 +1,311 @@
+<?php $path = Session::get('language'); ?>
+<?php $__env->startSection('title'); ?> Modifier <?php echo $student->fname.' '.$student->lname; ?> <?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
+<?php echo $__env->make('backend.timeAgo', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <!-- Workspace -->
+    <main class="workspace">
+        <!-- Breadcrumb -->
+        <section class="breadcrumb">
+ <!-- Breadcrumb -->
+        <section class="breadcrumb">
+            <h2>Modifier - <code class="text-primary"><?php echo $student->fname; ?> <?php echo $student->lname; ?></code></h2>
+            <ul>
+                <li><a href="#">Etudiants</a></li>
+                <li class="divider la la-arrow-right"></li>
+                <li>Modifier étudiant</li>
+            </ul>
+        </section> 
+        </section>
+        <div class="card p-3 flex flex-wrap gap-2 breadcrumb breadcrumb_alt">
+             <a href="<?php echo URL::route('profileEtudiant', [$class->id, $parcour->id.'/'.rtrim(strtr(base64_encode($student->id), '+/', '-_'), '=')]); ?>" class="btn btn_primary">
+                <span class="la la-user text-xl leading-none ltr:mr-1 rtl:ml-1"></span>
+                Profile de l'étudiant
+            </a>
+            <div class="flex flex-wrap gap-2 ltr:ml-auto rtl:mr-auto">
+                <a href="<?php echo URL::route('sameStudents', [$class->id, $parcour->id]); ?>" class="btn btn_warning text-primary">
+                    <span class="la la-th-list text-xl leading-none ltr:mr-2 rtl:ml-2"></span>
+                    Liste même niveau et parcours
+                </a>
+           
+                <a href="<?php echo URL::route('studentsAll'); ?>" class="btn btn_secondary">
+                    <span class="la la-users text-xl leading-none ltr:mr-2 rtl:ml-2"></span>
+                    Tous les étudiants
+                </a>
+            </div>
+        </div>   
+       <?php echo $__env->make('backend.admin.administration.Pay.return', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <div class="grid lg:grid-cols-2 gap-5 mt-5">
+            <!-- Content -->
+            <div class="lg:col-span-2 xl:col-span-3">
+                <div class="card p-5">
+                    <div class="tabs wizard wizard-style-2">
+                        <nav class="tab-nav">
+                            <button class="nav-link h5 active" data-toggle="tab" data-target="#tab-style-2-0">Etape 1
+                                <small>Etat civil</small>
+                            </button>
+                            <button class="nav-link h5" data-toggle="tab" data-target="#tab-style-2-1">Etape 2
+                                <small>Informations parentale</small>
+                            </button>
+                            <button class="nav-link h5" data-toggle="tab" data-target="#tab-style-2-2">
+                                Etape 3
+                                <small>Information universitaire</small>
+                            </button>
+                            <button class="nav-link h5" data-toggle="tab" data-target="#tab-style-2-3">
+                                Etape 4
+                                <small>Contact et Adresse</small>
+                            </button>
+                        </nav>
+
+<?php echo Form::open(['route'=>['updateStudent', $student->id], 'class'=>'', 'id'=>'', 'data-toggle'=>'']); ?>  
+
+                            <div class="tab-content mt-8">  
+                            <div id="tab-style-2-0" class="flex flex-wrap flex-row -mx-4 collapse open">
+                            <div class="mb-5 flex-shrink px-4 w-full xl:w-1/2">
+                                <label class="label block mb-2" for="fname">Nom *</label>
+                                <?php echo Form::text('fname', $student->fname, ['id'=>'fname', 'class'=>'form-control']); ?>
+
+                            </div>
+                            <div class="mb-5 flex-shrink px-4 w-full xl:w-1/2">
+                                <label class="label block mb-2" for="lname">Prénom</label>
+                                <?php echo Form::text('lname', $student->lname, ['id'=>'lname', 'class'=>'form-control']); ?>
+
+                            </div>
+                            <div class="mb-5 flex-shrink px-4 w-full xl:w-1/2">
+                                <label class="label block mb-2" for="sexe">Genre *</label>
+                                <div class="custom-select">
+                                 <select class="form-control" name="sexe" id="sexe">
+                                    <option selected disabled>Select</option>
+                                    <?php if($instances->sexe == 1): ?>
+                                    <option value="1" selected="selected" class="font-bold">Homme</option>
+                                    <option value="2">Femme</option>
+                                    <?php elseif($instances->sexe == 2): ?>
+                                    <option value="2" selected="selected" class="font-bold">Femme</option>
+                                    <option value="1">Homme</option>
+                                    <?php else: ?>
+                                    <option value="1">Homme</option>
+                                    <option value="2">Femme</option>
+                                    <?php endif; ?>
+                                </select>
+                                    <div class="custom-select-icon la la-caret-down"></div>
+                                </div>
+                            </div>
+                            <div class="mb-5 flex-shrink px-4 w-full xl:w-1/2">
+                                <label class="label block mb-2" for="nationality">Nationalité *</label>
+                                <div class="custom-select">
+                                 <select class="form-control" name="nationality" id="nationality">
+                                    <option selected disabled>Select</option>
+                                    <?php if($instances->nationality == 'MG'): ?>
+                                    <option value="MG" selected class="font-bold">Malagasy</option>
+                                    <option value="FR">Français</option>
+                                    <option value="INDE">Indiens</option>
+                                    <option value="CM">Comoriens</option>
+                                    <?php elseif($instances->nationality == 'FR'): ?>
+                                    <option value="FR" selected class="font-bold">Français</option>
+                                    <option value="MG">Malagasy</option>
+                                    <option value="INDE">Indiens</option>
+                                    <option value="CM">Comoriens</option>
+                                    <?php elseif($instances->nationality == 'INDE'): ?>
+                                    <option value="INDE" selected class="font-bold">Indiens</option>
+                                    <option value="MG">Malagasy</option>
+                                    <option value="FR">Français</option>
+                                    <option value="CM">Comoriens</option>
+                                    <?php elseif($instances->nationality == 'CM'): ?>
+                                    <option value="CM" selected class="font-bold">Comoriens</option>
+                                    <option value="MG">Malagasy</option>
+                                    <option value="FR">Français</option>
+                                    <option value="INDE">Indiens</option>
+                                    <?php else: ?>
+                                    <option value="MG">Malagasy</option>
+                                    <option value="FR">Français</option>
+                                    <option value="INDE">Indiens</option>
+                                    <option value="CM">Comoriens</option>
+                                    <?php endif; ?>
+                                </select>
+                                    <div class="custom-select-icon la la-caret-down"></div>
+                                </div>
+                            </div>
+                            <div class="mb-5 flex-shrink px-4 w-full xl:w-1/2">
+                                <label class="label block mb-2" for="birth">Date de naissance *</label>
+                                <?php echo Form::text('birth', $student->birth, ['id'=>'', 'class'=>'form-control', 'placeholder'=>'jj/mm/aaaa']); ?>
+
+                            </div>
+                            <div class="mb-5 flex-shrink px-4 w-full xl:w-1/2">
+                                <label class="label block mb-2" for="birthLocation">Lieu de naissance *</label>
+                                 <?php echo Form::text('birthLocation', $student->birthLocation, ['id'=>'birthLocation', 'class'=>'form-control']); ?>
+
+                            </div>
+                            </div>
+                            <div id="tab-style-2-1" class="flex flex-wrap flex-row -mx-4 collapse">
+                            <div class="mb-5 flex-shrink px-4 w-full xl:w-1/2">
+                                <label class="label block mb-2" for="papa">Père</label>
+                                <?php echo Form::text('papa', $parents->papa, ['id'=>'papa', 'class'=>'form-control']); ?>
+
+                            </div>
+                            <div class="mb-5 flex-shrink px-4 w-full xl:w-1/2">
+                                <label class="label block mb-2" for="mama">Mère</label>
+                                <?php echo Form::text('mama', $parents->mama, ['id'=>'mama', 'class'=>'form-control']); ?>
+
+                            </div>
+                            <div class="mb-5 flex-shrink px-4 w-full xl:w-1/2">
+                                <label class="label block mb-2" for="jobpapa">Profession père</label>
+                                <?php echo Form::text('jobpapa', $parents->jobpapa, ['id'=>'jobpapa', 'class'=>'form-control']); ?>
+
+                            </div>
+                            <div class="mb-5 flex-shrink px-4 w-full xl:w-1/2">
+                                <label class="label block mb-2" for="jobmama">Profession mère</label>
+                                <?php echo Form::text('jobmama', $parents->jobmama, ['id'=>'jobmama', 'class'=>'form-control']); ?>
+
+                            </div>
+                            <div class="mb-5 flex-shrink px-4 w-full xl:w-1/2">
+                                <label class="label block mb-2" for="adresseParent">Adresses parents</label>
+                                <?php echo Form::text('adresseParent', $parents->adresseParent, ['id'=>'adresseParent', 'class'=>'form-control']); ?>
+
+                            </div>
+                            <div class="mb-5 flex-shrink px-4 w-full xl:w-1/2">
+                                <label class="label block mb-2" for="contactParent">Contact parents</label>
+                                <?php echo Form::text('contactParent', $parents->contactParent, ['id'=>'contactParent', 'class'=>'form-control']); ?>
+
+                            </div>
+                            <div class="mb-5 flex-shrink px-4 w-full xl:w-1/2">
+                                <label class="label block mb-2" for="nametiteur">Nom de Titeur</label>
+                                <?php echo Form::text('nametiteur', $parents->nametiteur, ['id'=>'nametiteur', 'class'=>'form-control']); ?>
+
+                            </div>
+                            <div class="mb-5 flex-shrink px-4 w-full xl:w-1/2">
+                                <label class="label block mb-2" for="ctiteur">Contact titeur</label>
+                                <?php echo Form::text('ctiteur', $parents->ctiteur, ['id'=>'ctiteur', 'class'=>'form-control']); ?>
+
+                            </div>
+                             <div class="mb-5 flex-shrink px-4 w-full xl:w-2/2">
+                                <label class="label block mb-2" for="adtiteur">Adresses titeur</label>
+                                <?php echo Form::text('adtiteur', $parents->adtiteur, ['id'=>'adtiteur', 'class'=>'form-control']); ?>
+
+                            </div>
+                            </div>
+                            <div id="tab-style-2-2" class="flex flex-wrap flex-row -mx-4 collapse">
+                            <?php if($class->id == 1): ?>
+                            <div class="mb-5 flex-shrink px-4 w-full xl:w-1/2 parcours">
+                                <label class="label block mb-2" for="parcour_id">Parcours</label>
+                                 <div class="custom-select">
+                                    <select class="form-control" name="parcour_id" id="parcour_id">
+                                          <option value="1">Année Préparatoire</option>
+                                    </select>
+                            </div>
+                            </div>
+                            <?php else: ?>
+                            <div class="mb-5 flex-shrink px-4 w-full xl:w-1/2">
+                                <label class="label block mb-2" for="class_id">Niveau *</label>
+                                 <div class="custom-select">
+                                   <select name="class_id" id="class_id" class="form-control">
+                                    <?php if(!empty($student->class_id)): ?>
+                                    <option value="<?php echo $student->class_id; ?>" selected class="font-bold text-red-700"><?php echo $student->niveau->name; ?></option>
+                                    <?php else: ?>
+                                    <option value="" selected disabled>Choisir</option>
+                                    <?php endif; ?>
+                                     <?php foreach($classes as $class): ?>
+                                        <option value="<?php echo $class->id; ?>"><?php echo $class->name; ?></option>
+                                     <?php endforeach; ?>
+                                   </select>
+                                </div>
+                            </div>   
+                            <div class="mb-5 flex-shrink px-4 w-full xl:w-1/2 parcours">
+                                <label class="label block mb-2" for="parcour_id">Parcours *</label>
+                                 <div class="custom-select">
+                                   <select class="form-control" name="parcour_id" id="parcour_id">
+                                        <?php if(!empty($student->parcour_id)): ?>
+                                        <option value="<?php echo $student->parcour_id; ?>" selected class="font-bold text-primary"><?php echo $student->parcour->name; ?></option>
+                                        <?php else: ?>
+                                        <option value="" selected disabled>Choisir</option>
+                                        <?php endif; ?>
+                                        <?php foreach($parcours as $parcour): ?>
+                                          <option value="<?php echo $parcour->id; ?>"><?php echo $parcour->name; ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                <div class="custom-select-icon la la-caret-down"></div>
+                                <div class="help-block with-errors"></div>
+                                <?php if($errors->first('parcour_id')): ?>
+                                <span class="text-red-700"><?php echo $errors->first('parcour_id'); ?></span>
+                                <?php endif; ?>
+                            </div>
+                            </div>
+                            <?php endif; ?> 
+
+                            <div class="mb-5 flex-shrink px-4 w-full xl:w-1/2">
+                                <label class="label block mb-2" for="matricule">Numéro Matricule *</label>
+                               <?php echo Form::text('matricule', $student->matricule, ['id'=>'matricule', 'class'=>'form-control']); ?>
+
+                                <div class="help-block with-errors"></div>
+                                <?php if($errors->first('matricule')): ?>
+                                <span class="text-red-700"><?php echo $errors->first('matricule'); ?></span>
+                                <?php endif; ?>
+                            </div>
+                            <div class="mb-5 flex-shrink px-4 w-full xl:w-1/2 groupe">
+                                <label class="label block mb-2" for="groupe_id">Groupe</label>
+                                 <div class="custom-select">
+                                    <select name="groupe_id" id="groupe_id" class="form-control" disabled>
+                                      <?php if(!empty($student->groupe_id)): ?>
+                                        <option value="<?php echo $student->groupe_id; ?>" selected="" class="font-bold"><?php echo $student->groupe->name; ?></option>
+                                      <?php else: ?>
+                                      <option selected disabled>Choisir</option>
+                                      <?php endif; ?>
+                                      <?php foreach($groupes as $groupe): ?>
+                                         <option value="<?php echo $groupe->id; ?>"><?php echo $groupe->name; ?></option>
+                                      <?php endforeach; ?>
+                                   </select>
+                                    <div class="custom-select-icon la la-caret-down"></div>
+                                </div>
+                            </div>
+                           
+                            </div>
+                            <div id="tab-style-2-3" class="flex flex-wrap flex-row -mx-4 collapse">
+                            <div class="mb-5 flex-shrink px-4 xl:w-1/2">
+                                <label class="label block mb-2" for="email">Email (option)</label>
+                                <?php echo Form::email('email', $student->email, ['id'=>'email', 'class'=>'form-control']); ?>
+
+                                <span class="block emailError text-red-500 text-xs  hidden">error</span>
+                            </div>
+                            <div class="mb-5 flex-shrink px-4 w-full xl:w-1/2">
+                                <label class="label block mb-2" for="phone_1">Téléphone 1 *</label>
+                                <?php echo Form::text('phone_1', $student->phone_1, ['id'=>'phone_1', 'class'=>'form-control']); ?>
+
+                            </div>
+                            <div class="mb-5 flex-shrink px-4 w-full xl:w-1/4">
+                                <label class="label block mb-2" for="address">Adresse *</label>
+                                <?php echo Form::text('address', $student->address, ['id'=>'address', 'class'=>'form-control']); ?>
+
+                            </div>
+                            <div class="mb-5 flex-shrink px-4 w-full xl:w-1/2">
+                                <label class="label block mb-2" for="phone_2">Téléphone 2</label>
+                                 <?php echo Form::text('phone_2', $student->phone_2, ['id'=>'phone_2', 'class'=>'form-control']); ?>
+
+                            </div>
+                            <div class="mb-5 flex-shrink px-4 w-full xl:w-1/2">
+                                <label class="label block mb-2" for="facebook">Facebook</label>
+                                <?php echo Form::text('facebook',  $parents->facebook, ['id'=>'facebook', 'class'=>'form-control']); ?>
+
+                            </div>
+                            </div>
+                            </div>
+                            <div class="mt-4">
+                             <div class="flex items-center">
+                                    <button type="button" class="btn btn_secondary  ltr:ml-3" data-toggle="wizard"
+                                        data-direction="previous"><span class="la la-angle-double-left"></span> Préc  
+                                    </button>
+                                    <button type="button" class="btn btn_primary ltr:ml-1" data-toggle="wizard"
+                                        data-direction="next" id="next-btn">Suiv <span class="la la-angle-double-right"></span>
+                                    </button>
+                            </div>
+                            <center>
+                                    <button type="submit" class="btn btn_success"><span class="la la-sync"></span> Mettre à jour</button>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         <?php echo Form::close(); ?>           
+        </div> 
+<?php echo $__env->make('backend.pages.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>      
+    </main>   
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('backend.main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

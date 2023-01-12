@@ -209,15 +209,15 @@ class EcController extends BaseController {
 			else {
 
 				$el 				= EC::find($id);
-				$el->codeEc 		= e($inputs['codeEc']);
-				$el->codeUe 		= e($inputs['codeUe']);
-				$el->name 			= e($inputs['name']);
-				$el->abr 			= e($inputs['abr']);
+				$el->codeEc 		= ($inputs['codeEc']);
+				$el->codeUe 		= ($inputs['codeUe']);
+				$el->name 			= ($inputs['name']);
+				$el->abr 			= ($inputs['abr']);
 				$el->slug			= $this->makeSlug($inputs['name']);
-				$el->volH 			= e($inputs['volH']);
-				$el->coef 			= e($inputs['coef']);
-				$el->tronc 			= e($inputs['tronc']);
-				$el->semestre 		= e($inputs['semestre']);
+				$el->volH 			= ($inputs['volH']);
+				$el->coef 			= ($inputs['coef']);
+				$el->tronc 			= ($inputs['tronc']);
+				$el->semestre 		= ($inputs['semestre']);
 			}
 			if (Input::has('status'))
 			   {

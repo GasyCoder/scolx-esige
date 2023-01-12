@@ -12,7 +12,7 @@
             </div>
         </section>
                 <div class="card p-5">
-                    <h3>Classe tronc commun</h3>
+                    <h3>Niveau tronc commun</h3>
                     <table class="table table_bordered w-full mt-3">
                         <thead>
                             <tr>

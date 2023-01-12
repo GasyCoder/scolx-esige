@@ -231,17 +231,17 @@ class EtudiantController extends BaseController {
 				$all_files = implode(",", $files_array);
 				$students 		    = Student::create([
 				'class_id'    		=> $class->id,
-				'parcour_id' 		=> e(Input::get('parcour_id')),
-				'matricule' 		=> e(Input::get('matricule')),
-				'yearsUniv' 		=> e(Input::get('yearsUniv')),
-				'fname' 			=> e(Input::get('fname')),
-				'lname' 			=> e(Input::get('lname')),
-				'birth' 			=> e(Input::get('birth')),
-				'birthLocation' 	=> e(Input::get('birthLocation')),
-				'address' 			=> e(Input::get('address')),
-				'email' 			=> e(Input::get('email')),
-				'phone_1' 			=> e(Input::get('phone_1')),
-				'phone_2' 			=> e(Input::get('phone_2')),
+				'parcour_id' 		=> (Input::get('parcour_id')),
+				'matricule' 		=> (Input::get('matricule')),
+				'yearsUniv' 		=> (Input::get('yearsUniv')),
+				'fname' 			=> (Input::get('fname')),
+				'lname' 			=> (Input::get('lname')),
+				'birth' 			=> (Input::get('birth')),
+				'birthLocation' 	=> (Input::get('birthLocation')),
+				'address' 			=> (Input::get('address')),
+				'email' 			=> (Input::get('email')),
+				'phone_1' 			=> (Input::get('phone_1')),
+				'phone_2' 			=> (Input::get('phone_2')),
 				]);
 			if (Input::get('grade')) {
 					$students->grade = 'AL';
@@ -252,41 +252,41 @@ class EtudiantController extends BaseController {
 				]);
 			$instances 		= new Instance ([
 			    'user_id' 			=> $user_id,
-			    'groupe_id' 		=> e(Input::get('groupe_id')),
-				'nationality' 		=> e(Input::get('nationality')),
-				'promo' 		    => e(Input::get('promo')),
-				'sexe' 				=> e(Input::get('sexe')),
-				'yearsUniv' 		=> e(Input::get('yearsUniv')),
+			    'groupe_id' 		=> (Input::get('groupe_id')),
+				'nationality' 		=> (Input::get('nationality')),
+				'promo' 		    => (Input::get('promo')),
+				'sexe' 				=> (Input::get('sexe')),
+				'yearsUniv' 		=> (Input::get('yearsUniv')),
 				'status' 			=> 0,
 			]);
 			$parents 		= new Parents ([
-			    'facebook' 			=> e(Input::get('facebook')),
-				'papa' 				=> e(Input::get('papa')),
-				'mama' 				=> e(Input::get('mama')),
-				'jobpapa' 			=> e(Input::get('jobpapa')),
-				'jobmama' 			=> e(Input::get('jobmama')),
-				'nametiteur' 		=> e(Input::get('nametiteur')),
-				'adresseParent' 	=> e(Input::get('adresseParent')),
-				'contactParent' 	=> e(Input::get('contactParent')),
-				'ctiteur' 			=> e(Input::get('ctiteur')),
-				'adtiteur' 			=> e(Input::get('adtiteur')),
+			    'facebook' 			=> (Input::get('facebook')),
+				'papa' 				=> (Input::get('papa')),
+				'mama' 				=> (Input::get('mama')),
+				'jobpapa' 			=> (Input::get('jobpapa')),
+				'jobmama' 			=> (Input::get('jobmama')),
+				'nametiteur' 		=> (Input::get('nametiteur')),
+				'adresseParent' 	=> (Input::get('adresseParent')),
+				'contactParent' 	=> (Input::get('contactParent')),
+				'ctiteur' 			=> (Input::get('ctiteur')),
+				'adtiteur' 			=> (Input::get('adtiteur')),
 			]);
 			$fichier->save();
 			}
 			else {
 				$students 		    = Student::create([
 				'class_id'    		=> $class->id,
-				'parcour_id' 		=> e(Input::get('parcour_id')),
-				'matricule' 		=> e(Input::get('matricule')),
-				'yearsUniv' 		=> e(Input::get('yearsUniv')),
-				'fname' 			=> e(Input::get('fname')),
-				'lname' 			=> e(Input::get('lname')),
-				'birth' 			=> e(Input::get('birth')),
-				'birthLocation' 	=> e(Input::get('birthLocation')),
-				'address' 			=> e(Input::get('address')),
-				'email' 			=> e(Input::get('email')),
-				'phone_1' 			=> e(Input::get('phone_1')),
-				'phone_2' 			=> e(Input::get('phone_2')),
+				'parcour_id' 		=> (Input::get('parcour_id')),
+				'matricule' 		=> (Input::get('matricule')),
+				'yearsUniv' 		=> (Input::get('yearsUniv')),
+				'fname' 			=> (Input::get('fname')),
+				'lname' 			=> (Input::get('lname')),
+				'birth' 			=> (Input::get('birth')),
+				'birthLocation' 	=> (Input::get('birthLocation')),
+				'address' 			=> (Input::get('address')),
+				'email' 			=> (Input::get('email')),
+				'phone_1' 			=> (Input::get('phone_1')),
+				'phone_2' 			=> (Input::get('phone_2')),
 				]);
 				
 				if (Input::get('grade')) {
@@ -296,25 +296,25 @@ class EtudiantController extends BaseController {
 
 			$instances = new Instance ([
 			    'user_id' 			=> $user_id,
-			    'groupe_id' 		=> e(Input::get('groupe_id')),
-				'nationality' 		=> e(Input::get('nationality')),
-				'promo' 		    => e(Input::get('promo')),
-				'sexe' 				=> e(Input::get('sexe')),
-				'yearsUniv' 		=> e(Input::get('yearsUniv')),
+			    'groupe_id' 		=> (Input::get('groupe_id')),
+				'nationality' 		=> (Input::get('nationality')),
+				'promo' 		    => (Input::get('promo')),
+				'sexe' 				=> (Input::get('sexe')),
+				'yearsUniv' 		=> (Input::get('yearsUniv')),
 				'status' 			=> 0,
 			]);
 
 			$parents 		= new Parents ([
-			    'facebook' 			=> e(Input::get('facebook')),
-				'papa' 				=> e(Input::get('papa')),
-				'mama' 				=> e(Input::get('mama')),
-				'jobpapa' 			=> e(Input::get('jobpapa')),
-				'jobmama' 			=> e(Input::get('jobmama')),
-				'nametiteur' 		=> e(Input::get('nametiteur')),
-				'adresseParent' 	=> e(Input::get('adresseParent')),
-				'contactParent' 	=> e(Input::get('contactParent')),
-				'ctiteur' 			=> e(Input::get('ctiteur')),
-				'adtiteur' 			=> e(Input::get('adtiteur')),
+			    'facebook' 			=> (Input::get('facebook')),
+				'papa' 				=> (Input::get('papa')),
+				'mama' 				=> (Input::get('mama')),
+				'jobpapa' 			=> (Input::get('jobpapa')),
+				'jobmama' 			=> (Input::get('jobmama')),
+				'nametiteur' 		=> (Input::get('nametiteur')),
+				'adresseParent' 	=> (Input::get('adresseParent')),
+				'contactParent' 	=> (Input::get('contactParent')),
+				'ctiteur' 			=> (Input::get('ctiteur')),
+				'adtiteur' 			=> (Input::get('adtiteur')),
 			]);
 
 			$students->save();
@@ -369,34 +369,34 @@ class EtudiantController extends BaseController {
 
 				else {
 
-						$student->fname 		= e($inputs['fname']);
-						$student->lname 		= e($inputs['lname']);
-						$student->birth 		= e($inputs['birth']);
-						$student->birthLocation = e($inputs['birthLocation']);
-						$student->parcour_id 	= e($inputs['parcour_id']);
-                  		$student->class_id 		= e($inputs['class_id']);
-						$student->matricule 	= e($inputs['matricule']);
-						$student->email 		= e($inputs['email']);
-						$student->phone_1 		= e($inputs['phone_1']);
-						$student->phone_2 		= e($inputs['phone_2']);
-						$student->address 		= e($inputs['address']);
+						$student->fname 		= ($inputs['fname']);
+						$student->lname 		= ($inputs['lname']);
+						$student->birth 		= ($inputs['birth']);
+						$student->birthLocation = ($inputs['birthLocation']);
+						$student->parcour_id 	= ($inputs['parcour_id']);
+                  		$student->class_id 		= ($inputs['class_id']);
+						$student->matricule 	= ($inputs['matricule']);
+						$student->email 		= ($inputs['email']);
+						$student->phone_1 		= ($inputs['phone_1']);
+						$student->phone_2 		= ($inputs['phone_2']);
+						$student->address 		= ($inputs['address']);
 
-						$instances->sexe 		= e($inputs['sexe']);
-						$instances->nationality = e($inputs['nationality']);
+						$instances->sexe 		= ($inputs['sexe']);
+						$instances->nationality = ($inputs['nationality']);
 						$instances->user_id 	= Auth::user()->id;
 						//$instances->groupe_id 	= e($inputs['groupe_id']);
 						
-						$parents->facebook 		= e($inputs['facebook']);
-						$parents->papa 			= e($inputs['papa']);
-						$parents->mama 			= e($inputs['mama']);
-						$parents->nametiteur 	= e($inputs['nametiteur']);
-						$parents->jobpapa 		= e($inputs['jobpapa']);
-						$parents->jobmama 		= e($inputs['jobmama']);
-						$parents->contactParent = e($inputs['contactParent']);
-						$parents->adresseParent = e($inputs['adresseParent']);
+						$parents->facebook 		= ($inputs['facebook']);
+						$parents->papa 			= ($inputs['papa']);
+						$parents->mama 			= ($inputs['mama']);
+						$parents->nametiteur 	= ($inputs['nametiteur']);
+						$parents->jobpapa 		= ($inputs['jobpapa']);
+						$parents->jobmama 		= ($inputs['jobmama']);
+						$parents->contactParent = ($inputs['contactParent']);
+						$parents->adresseParent = ($inputs['adresseParent']);
 
-						$parents->ctiteur 		= e($inputs['ctiteur']);
-						$parents->adtiteur 		= e($inputs['adtiteur']);
+						$parents->ctiteur 		= ($inputs['ctiteur']);
+						$parents->adtiteur 		= ($inputs['adtiteur']);
 
 
 					

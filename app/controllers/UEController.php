@@ -163,12 +163,12 @@ class UEController extends BaseController {
 			} 
 			else {
 				$ues 				= UE::find($id);
-				$ues->codeUe 		= e($inputs['codeUe']);
-				$ues->name 			= e($inputs['name']);
-				$ues->credit 		= e($inputs['credit']);
-				$ues->tronc 		= e($inputs['tronc']);
-				$ues->choix 		= e($inputs['choix']);
-				$ues->codeSem 		= e($inputs['codeSem']);
+				$ues->codeUe 		= ($inputs['codeUe']);
+				$ues->name 			= ($inputs['name']);
+				$ues->credit 		= ($inputs['credit']);
+				$ues->tronc 		= ($inputs['tronc']);
+				$ues->choix 		= ($inputs['choix']);
+				$ues->codeSem 		= ($inputs['codeSem']);
 				
 			}
 

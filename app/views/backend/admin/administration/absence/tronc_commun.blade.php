@@ -17,7 +17,7 @@
                     <table class="table table_bordered w-full mt-3">
                         <thead>
                             <tr>
-                                <th class="ltr:text-left rtl:text-right" colspan="3">Classe</th>
+                                <th class="ltr:text-left rtl:text-right" colspan="3">Niveau</th>
                             </tr>
                         </thead>
                         <tbody>

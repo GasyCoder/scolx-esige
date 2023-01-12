@@ -84,7 +84,7 @@ class DomaineController extends BaseController {
 
 				$domaine = Domaine::find($id);
 
-				$domaine->name 			= e($inputs['name']);
+				$domaine->name 			= ($inputs['name']);
 				$domaine->parcour_id    = $parcour;
 				//$domaine->parcour_id 	= e($inputs['parcour_id']);
 				

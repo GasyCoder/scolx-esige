@@ -1,15 +1,15 @@
-﻿Nom;Prenom;Matricule;Niveau;Parcours;"Date de naissance";"Lieu de naissance";Nationalite;"Annee Universitaire";Telephone;Email
+Nom;Prenom;Matricule;Niveau;Parcours;"Date de naissance";"Lieu de naissance";Nationalite;"Annee Universitaire";Telephone;Email
 RAMARONJATOVO;"Eli Alexandre";IG23/01/esige;L1;IG;14-10-2003;Besakoa;MG;2022-2023;0329676281;
 RANDRIANIRINA;"Avotra Elisabethe Angeline";TH23/01/esige;L1;TH;17/05/2001;Mahajanga;MG;2022-2023;0323900857;
 RANDRIANORO;"Tinah Francklin";IG23/02/esige;L1;IG;30/06/2022;Mahajanga;MG;2022-2023;034;
 ANDRIAMAMPIANINA;"Dinasoa Ramaroson";TH23/02/esige;L1;TH;" 14/08/2002";Mahajanga;MG;2022-2023;032;
-MAMISON;"Nad&egrave;ge Evera";TH23/03/esige;L1;TH;28/03/2001;Mahajanga;MG;2022-2023;0325716471;
-"TOLOJANAHARY ";"Judica&euml;l Fabrice";CI23/01/esige;L1;CI;18/11/1999;Maintirano;MG;2022-2023;0320495191;
+MAMISON;"Nadège Evera";TH23/03/esige;L1;TH;28/03/2001;Mahajanga;MG;2022-2023;0325716471;
+"TOLOJANAHARY ";"Judicaël Fabrice";CI23/01/esige;L1;CI;18/11/1999;Maintirano;MG;2022-2023;0320495191;
 RASOARIVELO;"Lalao Yaricha";DR23/01/esige;L1;DR;29/12/2002;Mahajanga;MG;2022-2023;0322870032;
 IARITIANA;"Luc Joardo";IG23/03/esige;L1;IG;16/04/2005;Mahajanga;MG;2022-2023;0325983031;
 VELODIA;"Tsirimanitra Juan Saviola";CI23/02/esige;L1;CI;05/07/2003;Vangaindano;MG;2022-2023;0327774474;
 ANKINA;Georgio;AP23/01/esige;AP;AP;15/04/1999;Mahajanga;MG;2022-2023;0327591687;
-"NANDRASANA Ben Ibrahim";" Sadi Ga&euml;l ";TH23/04/esige;L1;TH;21/05/1996;Mahajanga;MG;2022-2023;0326407489;
+"NANDRASANA Ben Ibrahim";" Sadi Gaël ";TH23/04/esige;L1;TH;21/05/1996;Mahajanga;MG;2022-2023;0326407489;
 RAZANADRASOA;"Angenie Rica";DR23/02/esige;L1;DR;06/01/2005;Mahajanga;MG;2022-2023;0322845394;
 RAZAFIARISOA;"Herinantenaina Tantinah";TH23/05/esige;L1;TH;11/07/2002;Antsirabe;MG;2022-2023;0325412108;
 "RAZAFINDRAVONY ";"Sakanana Rosalie";IG23/04/esige;L1;IG;01/07/2005;Ambato-Boeny;MG;2022-2023;0326391556;
@@ -73,13 +73,13 @@ SAMIRAH;"Maxina Aly";TH20/02/esige;L3;TH;10/01/2002;"Ambondrona Mahajanga";MG;20
 RANDRIAVAOHERINIAINA;"Jean Olivier ";DR20/04/esige;L3;DR;09/12/1980;Mahajanga;MG;2022-2023;0347568282;
 RAMANANTSOA;"Hilaire Anthony";CF19/04/esige;L3;CF;"05 Aout 2001";Antsohihy;MG;2022-2023;032;
 HARIAGE;Helicka;DR20/05/esige;L3;DR;07-06/2002;"Port-Berg&eacute;";MG;2022-2023;032;
-"RAJAOHARISON ";"L&eacute;onisa Annie Sylvia";CI20/03/esige;L3;CI;17/072001;Soalala;MG;2022-2023;032;
+"RAJAOHARISON ";"Léonisa Annie Sylvia";CI20/03/esige;L3;CI;17/072001;Soalala;MG;2022-2023;032;
 "ANDRIAMANDIMBISOA ";"Solofo Bernardin";IG20/01/esige;L3;IG;23/05/1997;Toamasina;MG;2022-2023;032;
 HACHFATI;HAMIDOU;TH20/03/esige;L3;TH;21/12/2000;Moroni;CM;2022-2023;032;
 NASSURDINE;"Ali Mohamed";CF20/05/esige;L3;CF;13/03/1999;Ouani-Anjouan;CM;2022-2023;032;
 "RAZAFIMAHAFALY ";"Hasinjatovo Stella";CF20/06/esige;L3;CF;12/01/2000;"Hell-Ville Nosy-Be";MG;2022-2023;0326181280;
 RAVELONORO;"Orima Prisila";CI20/04/esige;L3;CI;15/01/2003;"Mahajanga ";MG;2022-2023;032;
-ANDRIANARIMANANA;"Herizo C&eacute;dric";CF18/07/esige;M1;CF;18/08/1998;"Tsararano Ambany";MG;2022-2023;032;
+ANDRIANARIMANANA;"Herizo Cédric";CF18/07/esige;M1;CF;18/08/1998;"Tsararano Ambany";MG;2022-2023;032;
 "SAID MOUNIR";"Said Ali";CF19/08/esige;M1;CF;14/07/1995;"Itsoundzou Badjini-Ouest";CM;2022-2023;032;
 DIARIMALALA;Sahaza;DR22/01/esige;M1;DR;21/01/1998;Mahajanga;MG;2022-2023;0324532739;
 "NAHEL ";"Ahmed Miradji";IG19/08/esige;M1;IG;23/04/1997;Hombo-Anjouan;CM;2022-2023;032;
@@ -101,7 +101,7 @@ SOLONIAINTIANA;"Fanirisoa Samurah";DR19/04/esige;M2;DR;23/05/1996;"Boanamary Mah
 RAZAFINIMANANA;"Vololonirina Hantarinjatovo";CF23/02/esige;M2;CF;28/12/1981;"Sandrandahy Fandriana";MG;2022-2023;0348131353;
 "NARINDRA ";"Ismael Amadi";MAE23/01/esige;M1;MAE;12/05/1992;"Namakia Mitsinjo";MG;2022-2023;0322678462;
 RABEMANANTSOA;Pierrot;MAE23/02/esige;M1;MAE;21/04/1990;"Andranomavo ";MG;2022-2023;0343132435;Rabemanantsoapierrot63@gmail.com
-BEZARA;"Florent Joc&agrave;";IG22/01/esige;M2;IG;23/09/1991;Mahajanga;MG;2022-2023;0349345251;bezaraflorent@gmail.com
+BEZARA;"Florent Jocà";IG22/01/esige;M2;IG;23/09/1991;Mahajanga;MG;2022-2023;0349345251;bezaraflorent@gmail.com
 RINAH;"Harisoa Adoresse";AP23/06/esige;AP;AP;15/09/2001;Ranomena;MG;2022-2023;0329335884;
 "ANDRIAMAHANDRY ";Fernarson;AP23/07/esige;AP;AP;26/09/1999;Mahajanga;MG;2022-2023;034;
 MIERY;Sylvia;AP23/08/esige;AP;AP;28/08/2003;Mahajanga;MG;2022-2023;0326111829;
@@ -128,7 +128,7 @@ SILIZARA;"Razafindrasoa Taniah";CI22/010/esige;L2;CI;07/01/2004;Mahajanga;MG;202
 CHAKIR;Mahatsara;CF22/03/esige;L2;CF;25/04/2000;Ambodibonara;MG;2022-2023;0327648718;
 "BEASINIAINA ";"Nicky Elia";CI22/011/esige;L2;CI;31/12/2004;Mahajanga;MG;2022-2023;0327405294;
 NOUH;Issouf;CI22/012/esige;L2;CI;28/02/1996;Anjouan;CM;2022-2023;0346037110;
-"MBOLATIANA ";"Kelly Andr&eacute;a";CI22/013/esige;L2;CI;21/01/2002;Mahajanga;MG;2022-2023;0326599234;
+"MBOLATIANA ";"Kelly Andréa";CI22/013/esige;L2;CI;21/01/2002;Mahajanga;MG;2022-2023;0326599234;
 PATRICK;Ryiad;DR22/01/esige;L2;DR;10/10/2000;Antsiranana;MG;2022-2023;0329645619;
 IARISON;"Tsiry Solotiana Tiffanie";CI22/014/esige;L2;CI;03/10/2000;Ranohira;MG;2022-2023;0322723709;
 SAIDATI;"El&iuml;ssa";TH22/05/esige;L2;TH;04/06/2002;Antsohihy;MG;2022-2023;032;
@@ -136,10 +136,9 @@ BEANJARA;Issouf;CI22/015/esige;L2;CI;03/08/2000;Mahajanga;MG;2022-2023;032643648
 MARIETTE;"Velomitahy  Samat";IG22/05/esige;L2;IG;10/10/2002;Maintirano;MG;2022-2023;0329218436;
 RAVELONASANDRATRA;"Avotriniaina Tiavina";DR22/02/esige;L2;DR;07/06/2001;Merikanjaka;MG;2022-2023;0341627980;
 RAZAFINDRAKOTO;"Petera Antonio";CF22/04/esige;L2;CF;28/02/1999;Betsako;MG;2022-2023;0329597170;
-ANRIFACHADE;"Ali Sa&iuml;dali";CF22/05/esige;L2;CF;02/09/1997;Dagi-Anjouan;CM;2022-2023;034;
+ANRIFACHADE;"Ali Saïdali";CF22/05/esige;L2;CF;02/09/1997;Dagi-Anjouan;CM;2022-2023;034;
 ANDRIANTAHINA;"Julio Kennedy";DR22/03/esige;L2;DR;19/05/2001;Mahajanga;MG;2022-2023;0346506914;
-TOTOZAFY;"Maeva C&eacute;line";DR22/04/esige;;DR;29/09/2000;Antsiranana;MG;2022-2023;0327531811;
-TOTOZAFY;"Maeva C&eacute;line";CI22/016/esige;L2;CI;29/09/2000;Antsiranana;MG;2022-2023;0327531811;
+TOTOZAFY;"Maeva Céline";CI22/016/esige;L2;CI;29/09/2000;Antsiranana;MG;2022-2023;0327531811;
 RAVONIARIMANANA;"Marie Prisca";DR22/04/esige;L2;DR;21/01/2003;Marovoay;MG;2022-2023;0329492655;
 "RAKOTONDRINA ";"Jean Augustin";CF22/06/esige;L2;CF;08/07/2002;Ankazomiriotra;MG;2022-2023;032;
 RASOARILALANAKAY;"Sarah Famisy";DR22/05/esige;L2;DR;10/07/1998;"Analafaly Bemaharivo";MG;2022-2023;0346356754;
@@ -152,7 +151,7 @@ RAMIHARINIRINA;"St&eacute;phanie Marie Yaldah";CF22/07/esige;L2;CF;27/02/2002;Ma
 TOMBOZARA;"Alaoui Abou";DR22/06/esige;L2;DR;10/01/1998;Mahajanga;MG;2022-2023;0328877069;
 RAMAMONJISOA;"Ishmeralda Rolance";IG22/07/esige;L2;IG;15/12/2001;Mahajanga;MG;2022-2023;032;
 "LAILLAH ISSANIE";"Binty Ali";DR23/07/esige;L2;DR;"08/10/1999 ";Mahajanga;MG;2022-2023;0325054718;
-TSIRESY;"Th&eacute;r&eacute;sia Didie";CI22/021/esige;L2;CI;06/01/2003;Ambanja;MG;2022-2023;032;
+TSIRESY;"Thérésia Didie";CI22/021/esige;L2;CI;06/01/2003;Ambanja;MG;2022-2023;032;
 SOANOMENJANAHARY;"Zaharat Hassan";CI22/022/esige;L2;CI;14/05/2003;Bemanonga;MG;2022-2023;032;
 SOAMEVAMAHAVELOMASINDRAY;Claricia;CI22/023/esige;L2;CI;09/08/2000;"Nosy-Be Hell-Ville";MG;2022-2023;0329856492;
 RAVOLOLOVELONA;"Ramiandrisoa Patricia";TH22/06/esige;L2;TH;20/03/2000;Mampikony;MG;2022-2023;0328360352;

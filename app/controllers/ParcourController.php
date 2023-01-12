@@ -30,9 +30,9 @@ class ParcourController extends BaseController {
 			else {
 				$parcour = Parcour::create([
 
-					'name' 		=> e($inputs['name']),
-					'abr' 		=> e($inputs['abr']),
-					'class_id' 	=> e($inputs['class_id']),
+					'name' 		=> ($inputs['name']),
+					'abr' 		=> ($inputs['abr']),
+					'class_id' 	=> ($inputs['class_id']),
 					//'status' 	=> e($inputs['status'])
 				]);
 				
@@ -68,8 +68,8 @@ class ParcourController extends BaseController {
 
 				$parcour = Parcour::find($id);
 
-				$parcour->name = e($inputs['name']);
-				$parcour->abr = e($inputs['abr']);
+				$parcour->name = ($inputs['name']);
+				$parcour->abr =  ($inputs['abr']);
 				$parcour->class_id = e($inputs['class_id']);
 				
 			}
